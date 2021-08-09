@@ -1,0 +1,4 @@
+2021-08-06 17:48:06,353 - tggt - ERROR - a TLObject was expected but found something else
+2021-08-06 22:19:38,212 - tggt - ERROR - The caption is too long (caused by SendMultiMediaRequest)
+2021-08-06 22:24:39,068 - tggt - ERROR - The caption is too long (caused by SendMultiMediaRequest)
+2021-08-08 19:56:05,574 - tggt - ERROR - a TLObject was expected but found something else

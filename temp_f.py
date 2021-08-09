@@ -1,5 +1,5 @@
 import asyncio
-from telethon import TelegramClient  # , sync, events, Button
+from telethon import TelegramClient  # sync, events, Button
 import logging
 import datetime
 
@@ -104,3 +104,6 @@ async def main():
 
 with client:
     client.loop.run_until_complete(main())
+
+
+#     адо добавитьб еще один трай, который будет отлавливать рандомные ошибки

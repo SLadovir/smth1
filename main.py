@@ -29,8 +29,8 @@ CHAT_SET_ALI_XER = 'Безделушки с AliExpress'
 CHAT_SET_TEST = 'Тестинг'
 
 ''' Пауза между сообщениями '''
-PAUSE_SUCCESS = 3600
-PAUSE_FAILURE = 300
+PAUSE_SUCCESS = 1633
+PAUSE_FAILURE = 311
 
 ''' Время начала и конца автопостинга. Нужно для ночного поста '''
 TIME_START = 7
@@ -39,13 +39,14 @@ TIME_END = 0
 
 def change_link(text):
     text_mess = text
-    edit_text = ''
-    end = len(text_mess) - text_mess[::-1].find('\n')  # last string with link
-    if end != len(text_mess) + 1:
-        for t in range(end):
-            edit_text = edit_text + text_mess[t]
-
-    my_link = '\nХочешь ссылку на товар с заманчивой ценой? 🔥🔥🔥\nПодпишись! Скоро будет 😉 \n'
+    edit_text = text_mess
+    # edit_text = ''
+    # end = len(text_mess) - text_mess[::-1].find('\n')  # last string with link
+    # if end != len(text_mess) + 1:
+    #     for t in range(end):
+    #         edit_text = edit_text + text_mess[t]
+    my_link = '\n\nХочешь ссылку на этот товар за 1 доллар ? 🔥🔥🔥\nПодпишись! Скоро будет 😉 \n'
+    # my_link = '\nХочешь ссылку на товар с заманчивой ценой? 🔥🔥🔥\nПодпишись! Скоро будет 😉 \n'
 
     edit_text = edit_text + my_link
     return edit_text
@@ -88,9 +89,9 @@ async def main():
             # мб оттуда будут челы подтягиваться
             await asyncio.sleep(PAUSE_SUCCESS)
         except Exception as e:
-            print('Ошибочка', message[0].id)
-            await client.send_message(CHAT_SET_LAST_MESSAGE_X7, 'Ошибочка^ ' + str(message[0].id))
-            await client.send_message(CHAT_SET_LAST_MESSAGE_X7, str(message[0].id))
+            print('Ошибочка', message[0].id)  # message[0].id почему-то на 1 меньше
+            await client.send_message(CHAT_SET_LAST_MESSAGE_X7, 'Ошибочка^ ' + str(last_message_id))
+            await client.send_message(CHAT_SET_LAST_MESSAGE_X7, str(last_message_id))
             await asyncio.sleep(PAUSE_FAILURE)
             logger.error(e)
 
